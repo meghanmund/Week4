@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+body > .main-grid {
+  height: 100vh;
+  transition: 500ms;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+  background: #000;
+  color: #fff;
+}
+
+:where(.main-header, .showcase, .sidebar) {
+  background: #000;
+  color: #fff;
+  transition: 300ms;
+}
+
+:where(.main-header, .showcase, .sidebar):hover {
+  background: #fff;
+  color: #000;
+}
+
+.grid:has(.main-header:hover) {
+    grid-template-columns: 2fr 0.5fr 0.5fr;
+  }
+
+.grid:has(.showcase:hover) {
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+
+.grid:has(.sidebar:hover) {
+  grid-template-columns: 0.5fr 0.5fr 2fr;
+}
