@@ -4,24 +4,27 @@
 
 body {
     margin: 0;
-    position:relative;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 /*header and nav layout*/
 
 .main-header{
+    margin:0;
+    color:#fff;
+    height: 100vh;
     position: fixed;
-    color:#fff
 }
 
-/*background grids*/
+/*background grid*/
 
 .backgrid{
     display: grid;
     grid-template-rows:  repeat(12, 1fr);
     height: 100vh;
-    position:absolute;
+    position:fixed;
+    width: 100vh;
+    transform: translateX(5rem);
     z-index: -1;
 }
 
@@ -97,28 +100,51 @@ body {
     rotate: -60deg;
 }
 
-/*start main layout*/
+/*begin main styling*/
 
 .main-header{
+    background-color: #000;
+    color:#fff;
     display:flex;
-    align-items: flex-start;
-    justify-content: left;
-    list-style: none;
-    z-index: 1;
+    flex-direction: column;
+    justify-content: space-around;
     position:fixed;
+    z-index: 2;
+}
+
+.main-header h1{
+    font-size: medium;
+}
+
+.main-header ul{
+    list-style: none;
+    font-size: smaller;
+}
+
+.main-header li{
+    padding-bottom:5rem;
+}
+
+.main-header a{
+    color:#5e5e5e;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+.main-header a:hover{
+    color:#fff;
+    transition: color 0.4s ease;
 }
 
 .main-grid {
-    background-image: url("images/bg.png");
     background-color: #000;
     color:#fff;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
     gap: 10px;
-    padding:1rem;
     transition: 500ms;
-    z-index: 1;
+    z-index: -14;
   }
 
   .showcase{
@@ -133,9 +159,12 @@ body {
 
   .sidebar{
     rotate:-30deg;
-    width:fit-content;
     z-index: 1;
+  }
 
+  footer{
+    transform: rotate(-90deg);
+    z-index: 2;
   }
 
   /*main-grid transitions*/
@@ -151,7 +180,7 @@ body {
   }
   
   .main-grid:has(.showcase:hover){
-    grid-template-columns: 2fr 0.5fr 0.5fr;
+    grid-template-columns: 1.5fr 1fr 0.5fr;
   }
   
     .main-grid:has(.about:hover){
@@ -159,5 +188,5 @@ body {
   }
 
     .main-grid:has(.aside:hover){
-    grid-template-columns: 0.5fr 0.5fr 2fr;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
   }
