@@ -132,7 +132,7 @@ body {
     height: 100vh;
     justify-content: space-evenly;
     position:fixed;
-    z-index: 2;
+    z-index: 1;
 }
 
 .main-header h1{
@@ -147,7 +147,7 @@ body {
 }
 
 .main-header li{
-    padding-bottom:5rem;
+    padding-bottom: 2rem;
 }
 
 .main-header a{
@@ -162,44 +162,36 @@ body {
 }
 
 .main-grid {
-    align-items: center;
     color:#5e5e5e;
     height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    display: block;
     padding-left:10rem;
+    margin-top:auto;
+    margin-bottom: auto;
     transition: 500ms;
     text-shadow: 0px 1px 2px #5e5e5e;
-    z-index: 3;
+    z-index: 1;
   }
 
 .left{
-    align-items: end;
-    justify-items:end;
-    padding:2rem;
-    rotate:-90deg;
+    padding:1rem;
+    rotate: 0;
     text-align: left;
     width:100%;
     z-index: 1;
   }
 
 .about{
-    align-items: center;
     background-color: rgba(0,0,0,.75);
-    justify-items:center;
-    padding:2rem;
+    padding:1rem;
     text-align: left;
     width:100%;
     z-index: 1;
   }
 
 .right{
-    align-items: start;
-    justify-items:start;
-    margin-top:0;
-    padding:2rem;
-    rotate:-90deg;
+    padding:1rem;
+    rotate: 0;
     text-align: left;
     width:100%;
     z-index: 1;
@@ -211,23 +203,43 @@ body {
   }
 
 footer{
+    align-items: center;
     background-color: #000;
     color:#5e5e5e;;
-    display:block;
+    display:flex;
+    flex-direction: column;
     font-size: small;
-    padding:1rem;
-    text-align:center;
-    z-index:2;
+    margin-top:6rem;
+    padding: 0.5rem;
+    position:absolute;
+    width:100%;
+    z-index: 1;
   }
 
-  @media (min-width: 30em){
+
+  @media only screen and (min-width: 992px){
+    .main-grid {
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .about{
+      padding:2rem;
+    }
+
     .left{
-        rotate:none;
-        padding-top: 3rem;
+      padding:2rem;
+        rotate:-90deg;
       }
 
   .right{
-    rotate:none;
+    padding:2rem;
+    rotate:-90deg;
   }
 
+  footer{
+    margin-top:0;
+  }
 }
