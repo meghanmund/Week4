@@ -211,9 +211,9 @@ footer{
     font-size: small;
     margin-top:6rem;
     padding: 0.5rem;
-    position:absolute;
     width:100%;
     z-index: 1;
+    bottom:0;
   }
 
 /*desktop*/
